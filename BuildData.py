@@ -22,7 +22,6 @@ def create_data(CATEGORY, directory, size, x_name, y_name):
       training_data.append([new_array, class_num])
       # plt.imshow(img_array)
       # plt.show()
-      
     except:
       pass
   save_data_to_pickle(training_data, x_name, y_name)
@@ -46,11 +45,18 @@ def save_data_to_pickle(training_data, x_name, y_name):
 
 
 def read_data_in_pickle(x_name, y_name):
+  X =[]
+  y =[]
+
   pickle_out = open(x_name, "rb")
-  pickle.load(x_name)
+  X= pickle.load(pickle_out)  
 
   pickle_out = open(y_name, "rb")
-  pickle.load(x_name)
-  
+  y =pickle.load(pickle_out)
 
-create_data(["Dog", "Cat"], "./kagglecatsanddogs/PetImages", 120, "X.pickle", "y.pickle")
+  print(X[0])
+
+  # plt.imshow(X[0])
+  
+# create_data(["Dog", "Cat"], "./kagglecatsanddogs/PetImages", 120, "X.pickle", "y.pickle")
+read_data_in_pickle("X.pickle", "y.pickle")
